@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from "react"
 import { BsThreeDots } from "react-icons/bs";
+import { FaClock } from "react-icons/fa";
+import { MdError } from "react-icons/md";
+import { BsLightningChargeFill } from "react-icons/bs";
+
 
 enum STATES {
     INIT,
@@ -15,7 +19,7 @@ function MainGame() {
 
     useEffect(()=>{ //when state is CHANGED to this, it will run this code once
         if(state === STATES.WAITFORGREEN){
-            setTimeout(()=>{setState(STATES.GREEN); counter.current = Date.now();},Math.random()*8000 + 2000) //2-10s
+            setTimeout(()=>{setState(STATES.GREEN); counter.current = Date.now();},Math.random()*4000 + 3000) //3-7s
         }
     },[state])
 
@@ -45,7 +49,12 @@ function MainGame() {
   return (
     <section className={`color-${state}`} onClick={handleClick} id="maingame">
         {state === STATES.INIT && 
-        <div>init</div>
+        <>
+        <svg width="75" height="100" viewBox="0 0 100 128" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" className="pulse-faint"><path d="M0.719527 59.616L32.8399 2.79148C33.8149 1.06655 35.6429 0 37.6243 0H94.4947C98.9119 0 101.524 4.94729 99.0334 8.59532L71.201 49.357C68.7101 53.0051 71.3225 57.9524 75.7397 57.9524H82.2118C87.3625 57.9524 89.6835 64.4017 85.7139 67.6841L14.34 126.703C9.85287 130.413 3.43339 125.513 5.82845 120.206L25.9709 75.5735C27.6125 71.936 24.9522 67.8166 20.9615 67.8166H5.50391C1.29539 67.8166 -1.35146 63.2798 0.719527 59.616Z" fill="currentcolor"></path></svg>
+        <div>Reaction Time Test</div>
+        <span>When the red box turns green, click as quickly as you can.</span>
+        <span>Click anywhere to start.</span>
+        </>
         }
         {state === STATES.GREEN &&
         <>
@@ -60,10 +69,18 @@ function MainGame() {
         </>
         }
         {state === STATES.TOOSOON && 
-        <div>TOOSOON</div>
+        <>
+        <MdError/>
+        <div>Too soon!</div>
+        <span>Click to try again.</span>
+        </>
         }
         {state === STATES.RESULTS && 
-        <div>RESULTS {timeAtClick.current}</div>
+        <>
+        <FaClock size={75}/>
+        <div>{timeAtClick.current} ms</div>
+        <span>Click to keep going</span>
+        </>
         }
     </section>
   )
