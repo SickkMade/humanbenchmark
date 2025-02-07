@@ -15,6 +15,7 @@ body{
   margin:0;
 }
 nav{
+  z-index: 1;
   height:2.6666rem;
   background-color: white;
   position:fixed;
@@ -164,4 +165,6 @@ video{
   height:0;
   position:absolute;
   left:-100px;
+  user-select: none;
+  pointer-events: none;
 }
