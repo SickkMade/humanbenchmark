@@ -1,0 +1,31 @@
+:root{
+  --background-color: #e6e8f4;
+  --blue-color: rgb(43, 135, 209);
+  --green-color: rgb(75, 219, 106);
+  --red-color: rgb(206, 38, 54);
+
+  background-color:var(--background-color);
+  font-weight: 400;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+}
+body{
+  margin:0;
+}
+nav{
+  height:3rem;
+  background-color: white;
+  position:sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .nav--group{
+  display:flex;
+  flex-flow: row nowrap;
+  gap: 2rem;
+}
+#maingame{
+  height:540px;
+  background-color: var(--blue-color);
+}
