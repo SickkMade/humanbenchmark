@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react"
 import { BsThreeDots } from "react-icons/bs";
 import { FaClock } from "react-icons/fa";
 import { MdError } from "react-icons/md";
-import { BsLightningChargeFill } from "react-icons/bs";
 
 
 enum STATES {
@@ -16,10 +15,16 @@ function MainGame() {
     const [state, setState] = useState(STATES.INIT)
     const counter = useRef(0);
     const timeAtClick = useRef(0);
+    const currentTimeout = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(()=>{ //when state is CHANGED to this, it will run this code once
         if(state === STATES.WAITFORGREEN){
-            setTimeout(()=>{setState(STATES.GREEN); counter.current = Date.now();},Math.random()*4000 + 3000) //3-7s
+            currentTimeout.current = setTimeout(()=>{setState(STATES.GREEN); counter.current = Date.now();},Math.random()*4000 + 3000) //3-7s
+        }
+        if(state === STATES.TOOSOON){
+            if(currentTimeout.current != null){
+                clearTimeout(currentTimeout.current);
+            }
         }
     },[state])
 
