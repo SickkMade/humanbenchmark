@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react"
+import { BsThreeDots } from "react-icons/bs";
 
 enum STATES {
     INIT,
@@ -42,15 +43,21 @@ function MainGame() {
     }
 
   return (
-    <section onClick={handleClick} id="maingame">
+    <section className={`color-${state}`} onClick={handleClick} id="maingame">
         {state === STATES.INIT && 
         <div>init</div>
         }
-        {state === STATES.GREEN && 
-        <div>GREEN</div>
+        {state === STATES.GREEN &&
+        <>
+        <BsThreeDots/>
+        <div>Click!</div>
+        </> 
         }
         {state === STATES.WAITFORGREEN && 
-        <div>WAITFORGREEN</div>
+        <>
+        <BsThreeDots/>
+        <div>Wait for green</div>
+        </>
         }
         {state === STATES.TOOSOON && 
         <div>TOOSOON</div>

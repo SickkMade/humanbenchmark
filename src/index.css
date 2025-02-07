@@ -69,6 +69,10 @@ article h5{
   font-size:1.5rem;
   
 }
+img{
+  pointer-events: none;
+  user-select: none;
+}
 article a{
   color:var(--link-blue);
   text-decoration: none;
@@ -78,6 +82,17 @@ article a{
   height:540px;
   background-color: var(--blue-color);
   margin-top:2.6666rem;
+  position: relative;
+
+  font-size:4.5rem;
+  display:flex;
+  flex-flow:column nowrap;
+  justify-content:center;
+  align-items: center;
+  color:white;
+}
+#maingame svg{
+  font-size:6rem;
 }
 #maingame:hover{
   cursor:pointer;
@@ -98,4 +113,13 @@ article a{
     box-shadow: none;
     height:1000px;
   }
+}
+#maingame.color-0, #minigame.color-4, #maingame.color-3{
+  background-color: var(--blue-color);
+}
+#maingame.color-1{
+  background-color: var(--green-color);
+}
+#maingame.color-2{
+  background-color: var(--red-color);
 }
