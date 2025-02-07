@@ -4,6 +4,7 @@
   --green-color: rgb(75, 219, 106);
   --red-color: rgb(206, 38, 54);
   --link-blue: rgb(69, 177, 255);
+  --hover-color:rgb(242, 242, 242);
 
   background-color:var(--background-color);
   font-weight: 400;
@@ -14,17 +15,31 @@ body{
   margin:0;
 }
 nav{
-  height:3rem;
+  height:2.6666rem;
   background-color: white;
-  position:sticky;
+  position:fixed;
+  width:100%;
   display: flex;
-  justify-content: space-between;
+  top:0;
+  justify-content: space-around;
   align-items: center;
 }
 nav .nav--group{
   display:flex;
   flex-flow: row nowrap;
-  gap: 2rem;
+}
+nav .nav--group svg{
+  color:lightgray;
+  margin-right:.25rem;
+}
+nav .nav--group div{
+  line-height: 300%;
+  height:100%;
+  padding:0 1rem;
+}
+nav .nav--group div:hover{
+  background-color: var(--hover-color);
+  cursor:pointer;
 }
 #stats{
   display:flex;
@@ -61,6 +76,7 @@ article a{
 #maingame{
   height:540px;
   background-color: var(--blue-color);
+  margin-top:2.6666rem;
 }
 @media (width < 700px){
   article+article{

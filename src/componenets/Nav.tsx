@@ -4,7 +4,7 @@ function Nav() {
   return (
     <nav>
       <div className="nav--group">
-        <div><FaBoltLightning/>HUMAN BENCHMARK</div>
+        <div><FaBoltLightning size={12}/>HUMAN BENCHMARK</div>
         <div>DASHBOARD</div>
       </div>
       <div className="nav--group">
