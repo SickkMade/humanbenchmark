@@ -4,7 +4,7 @@ function Stats() {
         <section id="stats">
             <article>
                 <h5>Statistics</h5>
-                <img src="/image.png"></img>
+                <img src="https://github.com/SickkMade/humanbenchmark/raw/refs/heads/main/public/image.png"></img>
             </article>
             <article>
                 <h5>About the test</h5>

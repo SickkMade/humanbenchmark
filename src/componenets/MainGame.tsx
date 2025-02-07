@@ -21,7 +21,7 @@ function MainGame() {
 
     useEffect(()=>{ //when state is CHANGED to this, it will run this code once
         if(state === STATES.WAITFORGREEN){
-            currentTimeout.current = setTimeout(()=>{setState(STATES.GREEN); counter.current = Date.now();},Math.random()*4000 + 3000) //3-7s
+            currentTimeout.current = setTimeout(()=>{setState(STATES.GREEN); counter.current = Date.now();},Math.random()*2000 + 3000) //3-7s
         }
         else if(state===STATES.GREEN){
             timesCorrect.current += 1;
