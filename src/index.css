@@ -3,6 +3,7 @@
   --blue-color: rgb(43, 135, 209);
   --green-color: rgb(75, 219, 106);
   --red-color: rgb(206, 38, 54);
+  --link-blue: rgb(69, 177, 255);
 
   background-color:var(--background-color);
   font-weight: 400;
@@ -25,7 +26,51 @@ nav .nav--group{
   flex-flow: row nowrap;
   gap: 2rem;
 }
+#stats{
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:center;
+  gap:1.5%;
+  width:fit-content;
+  margin: 2rem auto 0 auto;
+}
+article{
+  background-color:white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px;
+  border-radius: .3125rem;
+  padding: 2rem;
+  width:27.5%;
+}
+article p {
+  font-weight: 400;
+}
+article h5{
+  font-weight: normal;
+  margin:0;
+  font-size:1.5rem;
+  
+}
+article a{
+  color:var(--link-blue);
+  text-decoration: none;
+}
 #maingame{
   height:540px;
   background-color: var(--blue-color);
+}
+@media (width < 700px){
+  article+article{
+    display:none;
+  }
+  :root{
+    background-color: white;
+  }
+  #stats{
+    width:100%;
+  }
+  article{
+    width:100%;
+    box-shadow: none;
+    height:1000px;
+  }
 }

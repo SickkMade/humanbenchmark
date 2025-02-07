@@ -1,12 +1,13 @@
 import Nav from "./componenets/Nav"
 import MainGame from "./componenets/MainGame"
+import Stats from "./componenets/Stats"
 
 function App() {
   return (
     <>
     <Nav/>
     <MainGame/>
-    <div>rest of page</div>
+    <Stats/>
     </>
   )
 }
