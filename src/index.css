@@ -32,14 +32,18 @@ nav .nav--group{
   justify-content:center;
   gap:1.5%;
   width:fit-content;
-  margin: 2rem auto 0 auto;
+  margin: 2rem auto 2rem auto;
 }
 article{
   background-color:white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px;
   border-radius: .3125rem;
   padding: 2rem;
-  width:27.5%;
+  width:30%;
+  line-height: 1.7;
+}
+article img{
+  width:100%;
 }
 article p {
   font-weight: 400;
@@ -69,6 +73,7 @@ article a{
     width:100%;
   }
   article{
+    text-align: center;
     width:100%;
     box-shadow: none;
     height:1000px;

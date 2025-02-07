@@ -4,7 +4,7 @@ function Stats() {
         <section id="stats">
             <article>
                 <h5>Statistics</h5>
-                <p></p>
+                <img src="/image.png"></img>
             </article>
             <article>
                 <h5>About the test</h5>
