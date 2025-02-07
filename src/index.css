@@ -74,9 +74,13 @@ article a{
   text-decoration: none;
 }
 #maingame{
+  user-select: none;
   height:540px;
   background-color: var(--blue-color);
   margin-top:2.6666rem;
+}
+#maingame:hover{
+  cursor:pointer;
 }
 @media (width < 700px){
   article+article{

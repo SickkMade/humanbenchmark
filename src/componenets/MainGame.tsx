@@ -1,15 +1,22 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 
 enum STATES {
     INIT,
     GREEN,
     WAITFORGREEN,
     TOOSOON,
-
+    RESULTS,
 }
 function MainGame() { 
     const [state, setState] = useState(STATES.INIT)
     const counter = useRef(0);
+    const timeAtClick = useRef(0);
+
+    useEffect(()=>{ //when state is CHANGED to this, it will run this code once
+        if(state === STATES.WAITFORGREEN){
+            setTimeout(()=>{setState(STATES.GREEN); counter.current = Date.now();},Math.random()*8000 + 2000) //2-10s
+        }
+    },[state])
 
     const handleClick = () => {
         switch (state){
@@ -17,15 +24,17 @@ function MainGame() {
                 setState(STATES.WAITFORGREEN);
                 break;
             case STATES.WAITFORGREEN:
-                if(counter.current > 0){ //if counting
-                    setState(STATES.GREEN)
-                }
-                else{
                     setState(STATES.TOOSOON)
-                }
                 break;
             case STATES.TOOSOON:
                 setState(STATES.WAITFORGREEN);
+                break;
+            case STATES.GREEN:
+                timeAtClick.current = Date.now() - counter.current
+                setState(STATES.RESULTS);
+                break;
+            case STATES.RESULTS:
+                setState(STATES.WAITFORGREEN)
                 break;
             default:
                 break;
@@ -45,6 +54,9 @@ function MainGame() {
         }
         {state === STATES.TOOSOON && 
         <div>TOOSOON</div>
+        }
+        {state === STATES.RESULTS && 
+        <div>RESULTS {timeAtClick.current}</div>
         }
     </section>
   )
